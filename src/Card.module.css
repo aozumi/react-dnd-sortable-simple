@@ -3,5 +3,17 @@
     padding: 0.5rem 1rem;
     margin-bottom: .5rem;
     background-color: white;
+    /* cursor: move; */
+}
+
+.Handle {
+    border: 1px gray solid;
+    position: fixed;
+    left: 10px;
+    width: 10px;
+    height: 20px;
+    margin-right: 10px;
+    background-color: gray;
     cursor: move;
+    display: inline-block;
 }

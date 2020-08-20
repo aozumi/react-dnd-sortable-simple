@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({text, id, index, moveCard, startDrag, cancel
     const ref = useRef<HTMLDivElement>(null);
 
     // ドラッグ可能にする
-    const [{isDragging}, drag] = useDrag({
+    const [{isDragging}, drag, preview] = useDrag({
         item: { type: ItemTypes.CARD, id, index },
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging()
@@ -72,9 +72,10 @@ const Card: React.FC<CardProps> = ({text, id, index, moveCard, startDrag, cancel
     // ドラッグ中、元の要素は表示を消す(場所はとったまま)
     const opacity = isDragging ? 0 : 1;
     // 複数のrefで同じ要素を指すようにできる
-    drag(drop(ref));
+    preview(drop(ref));
     return (
         <div ref={ref} className={style.Card} style={{opacity}}>
+            <span ref={drag} className={style.Handle}/>
             {text}
         </div>
     );
