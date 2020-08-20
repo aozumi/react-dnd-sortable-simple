@@ -71,7 +71,7 @@ const Card: React.FC<CardProps> = ({text, id, index, moveCard, startDrag, cancel
 
     // ドラッグ中、元の要素は表示を消す(場所はとったまま)
     const opacity = isDragging ? 0 : 1;
-    // 複数のrefで同じ要素を指すようにできる
+    // preview, drop は ref を参照させることができる
     preview(drop(ref));
     return (
         <div ref={ref} className={style.Card} style={{opacity}}>
